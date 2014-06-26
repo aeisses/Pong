@@ -84,7 +84,9 @@
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidDisappear:animated];
+    [_animationLayer removeMyAnimations];
     _animationLayer.myDelegate = nil;
+    [_animationLayer removeFromSuperlayer];
     self.dataService.gameDelegate = nil;
     [_panGesture removeTarget:self action:@selector(handlePan:)];
     if (!_isSlave)
